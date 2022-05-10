@@ -221,7 +221,7 @@ h1, h3 {
   position: relative;
   -o-object-fit: contain;
      object-fit: contain;
-  top: 155px;
+  top: 9.688rem;
   font-size: 70px;
   letter-spacing: 5px;
   margin-left: 5px;
@@ -254,6 +254,7 @@ h1, h3 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  color: orange;
 }
 
 .link {
