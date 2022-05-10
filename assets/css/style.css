@@ -256,6 +256,10 @@ h1, h3 {
           transform: translateX(-50%);
 }
 
+.link {
+  margin: .7rem;
+}
+
 .link-button {
   position: relative;
   height: 3rem;
@@ -302,10 +306,10 @@ h1, h3 {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 100%;
-  height: 13rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-bottom: 3rem;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
