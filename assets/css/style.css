@@ -313,6 +313,10 @@ h1, h3 {
   position: relative;
 }
 
+.wrapper-top p {
+  margin: 1rem;
+}
+
 .wrapper-bottom {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

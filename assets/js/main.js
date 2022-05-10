@@ -106,7 +106,6 @@ TxtRotate.prototype.tick = function () {
       //check if the muted button is toggled
       if (soundMute == false) {
         var audio = new Audio("assets/audio/type.mp3");
-        audio.playbackRate = getRandomFloat(0.77, 1.5, 2);
 
         //honestly idk how any of this works but it basicallys checks if audio autoplay is working
         //https://stackoverflow.com/questions/49930680/
@@ -127,6 +126,7 @@ TxtRotate.prototype.tick = function () {
           };
         })(Audio.prototype.play);
         document.getElementById("interact").style.opacity = "0%";
+        audio.playbackRate = getRandomFloat(0.77, 1.5, 2);
         audio.play();
       } else {
         console.log("skipping audio");
