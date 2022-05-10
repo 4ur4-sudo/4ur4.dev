@@ -206,6 +206,7 @@ h1,h3 {
   width: 21rem;
   border-radius: 2rem;
   border: 2px solid rgba(255, 255, 255, 0.75);
+  transition: filter .2s ease;
 }
 
 .link-bg {
@@ -216,9 +217,13 @@ h1,h3 {
   height: 4rem;
   width: 20rem;
   box-sizing: border-box;
+  transition: filter .2s ease;
 }
 
 .link-text {
+  svg {
+    transition: filter .3s ease-in;
+  }
   position: absolute;
   top: 50%;
   left: 50%;

@@ -8,7 +8,14 @@ document.documentElement.onload = function () {
   document.getElementById("loader").style.display = "block";
 };
 
+$(document).click(function (e) {
+  console.log('click')
+  clicked = true;
+  document.getElementById("interact").style.opacity = "0%";
+});
+
 var soundMute = false;
+var clicked = false;
 
 function muteToggle() {
   let button = document.getElementById("mute");
@@ -29,9 +36,11 @@ function muteToggle() {
 $(document).ready(function () {
 
   $(".link").hover(function () {
-      $(this).find("svg").css("filter","drop-shadow(0 0 .3rem white)");
+      $(this).find("svg").css("filter","drop-shadow(0 0 .2rem white)");
+      $(this).find(".link-button").css("filter","drop-shadow(0 0 .2rem white)");
     }, function () {
       $(this).find("svg").css("filter","");
+      $(this).find(".link-button").css("filter","");
     }
   );
 
@@ -110,7 +119,9 @@ TxtRotate.prototype.tick = function () {
               promise.catch((_) => {
                 // if autoplay no worky
                 console.log("ok");
-                document.getElementById("interact").style.opacity = "60%";
+                if (clicked == false){
+                  document.getElementById("interact").style.opacity = "60%";
+                }
               });
             }
           };

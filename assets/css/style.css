@@ -267,6 +267,10 @@ h1, h3 {
   width: 21rem;
   border-radius: 2rem;
   border: 2px solid rgba(255, 255, 255, 0.75);
+  -webkit-transition: -webkit-filter .2s ease;
+  transition: -webkit-filter .2s ease;
+  transition: filter .2s ease;
+  transition: filter .2s ease, -webkit-filter .2s ease;
 }
 
 .link-bg {
@@ -279,6 +283,10 @@ h1, h3 {
   width: 20rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: -webkit-filter .2s ease;
+  transition: -webkit-filter .2s ease;
+  transition: filter .2s ease;
+  transition: filter .2s ease, -webkit-filter .2s ease;
 }
 
 .link-text {
@@ -292,6 +300,13 @@ h1, h3 {
   font-size: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.link-text svg {
+  -webkit-transition: -webkit-filter .3s ease-in;
+  transition: -webkit-filter .3s ease-in;
+  transition: filter .3s ease-in;
+  transition: filter .3s ease-in, -webkit-filter .3s ease-in;
 }
 
 .wrapper-top {
