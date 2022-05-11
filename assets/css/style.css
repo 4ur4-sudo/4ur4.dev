@@ -116,8 +116,8 @@ h1, h3 {
   border: none;
   z-index: 69;
   position: absolute;
-  left: 96%;
-  top: 88%;
+  bottom: 1rem;
+  right: -1rem;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }
@@ -261,16 +261,35 @@ h1, h3 {
   margin: .7rem;
 }
 
+.link-arrows {
+  -webkit-transition: -webkit-filter .2s ease;
+  transition: -webkit-filter .2s ease;
+  transition: filter .2s ease;
+  transition: filter .2s ease, -webkit-filter .2s ease;
+}
+
+.link-arrows .left {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  left: 6.5rem;
+  top: .8rem;
+  position: absolute;
+}
+
+.link-arrows .right {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  left: 13.1rem;
+  top: .8rem;
+  position: absolute;
+}
+
 .link-button {
   position: relative;
   height: 3rem;
   width: 21rem;
   border-radius: 2rem;
   border: 2px solid rgba(255, 255, 255, 0.75);
-  -webkit-transition: -webkit-filter .2s ease;
-  transition: -webkit-filter .2s ease;
-  transition: filter .2s ease;
-  transition: filter .2s ease, -webkit-filter .2s ease;
 }
 
 .link-bg {
@@ -290,6 +309,10 @@ h1, h3 {
 }
 
 .link-text {
+  -webkit-transition: -webkit-filter .2s ease;
+  transition: -webkit-filter .2s ease;
+  transition: filter .2s ease;
+  transition: filter .2s ease, -webkit-filter .2s ease;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -409,6 +432,6 @@ h1, h3 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(41, 52, 71, 0.747);
+  background: rgba(13, 16, 22, 0.747);
 }
 /*# sourceMappingURL=style.css.map */
