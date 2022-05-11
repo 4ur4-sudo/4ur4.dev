@@ -271,17 +271,21 @@ h1, h3 {
 .link-arrows .left {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  left: 6.5rem;
+  left: -1.5rem;
   top: .8rem;
   position: absolute;
+  -webkit-transition: left .4s ease;
+  transition: left .4s ease;
 }
 
 .link-arrows .right {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  left: 13.1rem;
+  left: 21.1rem;
   top: .8rem;
   position: absolute;
+  -webkit-transition: left .4s ease;
+  transition: left .4s ease;
 }
 
 .link-button {
@@ -289,6 +293,7 @@ h1, h3 {
   height: 3rem;
   width: 21rem;
   border-radius: 2rem;
+  overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.75);
 }
 

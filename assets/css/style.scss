@@ -204,15 +204,17 @@ h1,h3 {
   transition: filter .2s ease;
   .left {
     transform: rotate(-90deg);
-    left: 6.5rem;
+    left: -1.5rem;
     top: .8rem;
     position: absolute;
+    transition: left .4s ease;
   }
   .right {
     transform: rotate(90deg);
-    left: 13.1rem;
+    left: 21.1rem;
     top: .8rem;
     position: absolute;
+    transition: left .4s ease;
   }
 }
 
@@ -221,7 +223,7 @@ h1,h3 {
   height: 3rem;
   width: 21rem;
   border-radius: 2rem;
-  //overflow: hidden;
+  overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.75);
 }
 

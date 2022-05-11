@@ -36,12 +36,14 @@ function muteToggle() {
 $(document).ready(function () {
 
   $(".link").hover(function () {
-      $(this).find(".link-glow").css("filter","drop-shadow(0 0 .2rem white)");
-      $(this).find(".link-button").children().css("filter","drop-shadow(0 0 .2rem white)");
+      $(this).find(".link-glow").css("filter","drop-shadow(0 0 .2rem white)"); $(this).find(".link-button").children().css("filter","drop-shadow(0 0 .2rem white)");
+      $(this).find(".left").css("left","6.1rem")
+      $(this).find(".right").css("left","13.4rem")
+
     }, function () {
-      $(this).find(".link-glow").css("filter","");
-      $(this).find(".link-button").children()
-      .css("filter","");
+      $(this).find(".link-glow").css("filter",""); $(this).find(".link-button").children().css("filter","");
+      $(this).find(".left").css("left","-1.5rem")
+      $(this).find(".right").css("left","21.1rem")
     }
   );
 
