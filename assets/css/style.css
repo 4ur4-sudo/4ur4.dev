@@ -44,7 +44,7 @@ h1, h3 {
   opacity: 50%;
   background: #414141;
   width: 20rem;
-  height: 4rem;
+  height: 3rem;
   border-radius: 0.5rem;
   position: absolute;
   top: 2%;
@@ -57,7 +57,7 @@ h1, h3 {
   font-family: 'Palanquin', sans-serif;
   font-weight: 200;
   color: orange;
-  margin-top: -.5rem;
+  margin-top: -1rem;
   font-size: 40px;
   text-align: center;
 }
@@ -180,8 +180,6 @@ h1, h3 {
 
 .rgb {
   background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   background-image: linear-gradient(124deg, #1de840, #1ddde8, #2b1de8, #dd00f3);
@@ -295,6 +293,10 @@ h1, h3 {
   border-radius: 2rem;
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.75);
+  -webkit-transition: -webkit-filter .2s ease;
+  transition: -webkit-filter .2s ease;
+  transition: filter .2s ease;
+  transition: filter .2s ease, -webkit-filter .2s ease;
 }
 
 .link-bg {
