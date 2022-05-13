@@ -21,13 +21,13 @@ function muteToggle() {
   let button = document.getElementById("mute");
   if (soundMute == false) {
     button.firstChild.firstChild.setAttribute(
-      "d",
-      ""
+      "fill",
+      "#ff5555"
     );
   } else {
     button.firstChild.firstChild.setAttribute(
-      "d",
-      ""
+      "fill",
+      "#50fa7b"
     );
   }
   soundMute = !soundMute;

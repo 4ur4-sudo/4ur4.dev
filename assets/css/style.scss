@@ -118,11 +118,11 @@ h1,h3 {
 
 @keyframes up {
   0%{transform: translate(-50%,0px);}
-  100%{transform: translate(-50%,-5px);}
+  100%{transform: translate(-50%,-2.5px);}
 }
 
 @keyframes down {
-  0%{transform: translate(-50%,-5px);}
+  0%{transform: translate(-50%,-2.5px);}
   100%{transform: translate(-50%,0px);}
 }
 
