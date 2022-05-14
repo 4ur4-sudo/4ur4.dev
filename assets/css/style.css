@@ -2,7 +2,7 @@ body {
   background: #1f1f1f;
 }
 
-p, a {
+p, a, .discord {
   font-family: 'Palanquin', sans-serif;
   color: #d4d4d4;
   font-size: 25px;
@@ -104,6 +104,14 @@ h1, h3 {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.select {
+  -webkit-touch-callout: all;
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  -ms-user-select: all;
+  user-select: all;
 }
 
 .nopadding {
@@ -252,7 +260,7 @@ h1, h3 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  color: #bd93f9;
+  color: darkslateblue;
 }
 
 .link {
@@ -332,11 +340,18 @@ h1, h3 {
           box-sizing: border-box;
 }
 
+.link-text span {
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
+}
+
 .link-text svg {
   -webkit-transition: -webkit-filter .3s ease-in;
   transition: -webkit-filter .3s ease-in;
   transition: filter .3s ease-in;
   transition: filter .3s ease-in, -webkit-filter .3s ease-in;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
 }
 
 .wrapper-top {

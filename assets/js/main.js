@@ -29,7 +29,7 @@ $(window).scroll(function(){
 });
 
 var soundMute = false;
-var typingVisible = false;
+var typingVisible = true;
 var clicked = false;
 
 function muteToggle() {
@@ -49,18 +49,42 @@ function muteToggle() {
 }
 
 $(document).ready(function () {
-
+  //link hover effects
   $(".link").hover(function () {
-      $(this).find(".link-button").children().addBack().css("filter","drop-shadow(0 0 .2rem white)");
+      $(this).find(".link-button").css("filter","drop-shadow(0 0 .2rem white)");
       $(this).find(".left").css("left","6.1rem");
       $(this).find(".right").css("left","13.4rem");
 
     }, function () {
-      $(this).find(".link-button").children().addBack().css("filter","");
+      $(this).find(".link-button").css("filter","");
       $(this).find(".left").css("left","-1.5rem");
       $(this).find(".right").css("left","21.1rem");
     }
   );
+    //discord hover effects
+    $(".discord").hover(function(){
+      let text= $(this).find("span");
+      let svg= $(this).find("svg");
+      text.css("opacity","0");
+      svg.css("opacity","0");
+      setTimeout(() => {
+          text.text("4ur4#3538"); 
+          text.css("opacity","100");
+          svg.css("opacity","100");
+      }, 200);
+    }, function(){
+      let text= $(this).find("span");
+      let svg= $(this).find("svg");
+      text.css("opacity","0");
+      svg.css("opacity","0");
+      setTimeout(() => {
+          text.text("Discord"); 
+          text.css("opacity","100");
+          svg.css("opacity","100");
+      }, 200);
+    }
+    );
+  
 
   //hide loading screen
   document.getElementById("loader").style.display = "none";
