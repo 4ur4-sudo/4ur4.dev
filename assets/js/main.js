@@ -8,13 +8,28 @@ document.documentElement.onload = function () {
   document.getElementById("loader").style.display = "block";
 };
 
+//Click listener for autoplay
 $(document).click(function (e) {
   console.log('click')
   clicked = true;
   document.getElementById("interact").style.opacity = "0%";
 });
 
+//Listener for scroll to stop typing audio
+$(window).scroll(function(){
+  var element = document.querySelector('.title');
+	var position = element.getBoundingClientRect();
+
+	// checking whether fully visible
+	if(position.top >= 0 && position.bottom <= window.innerHeight) {
+		typingVisible = true;
+	} else {
+    typingVisible = false;
+  }
+});
+
 var soundMute = false;
+var typingVisible = false;
 var clicked = false;
 
 function muteToggle() {
@@ -107,7 +122,7 @@ TxtRotate.prototype.tick = function () {
     //check if website is currently visible
     if (document.visibilityState == "visible") {
       //check if the muted button is toggled
-      if (soundMute == false) {
+      if (soundMute == false && typingVisible == true) {
         var audio = new Audio("assets/audio/type.mp3");
 
         //honestly idk how any of this works but it basicallys checks if audio autoplay is working

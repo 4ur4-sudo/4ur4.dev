@@ -54,7 +54,7 @@
     },
     "move": {
       "enable": true,
-      "speed": 3.5,
+      "speed": 4,
       "direction": "none",
       "random": false,
       "straight": false,
@@ -71,7 +71,7 @@
     "detect_on": "window",
     "events": {
       "onhover": {
-        "enable": true,
+        "enable": false,
         "mode": "repulse"
       },
       "onclick": {
