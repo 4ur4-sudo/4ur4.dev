@@ -246,8 +246,15 @@ h1,h3 {
   transition: filter .2s ease;
 }
 
+.discord-text{
+  span::selection {
+    color: #5865F2;
+  }
+}
+
 .link-text {
   transition: filter .2s ease;
+  transition: opacity .2 ease;
   span {
     transition: opacity .2s ease;
   }
@@ -260,7 +267,8 @@ h1,h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 200;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   box-sizing: border-box;
 }

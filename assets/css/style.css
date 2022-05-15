@@ -323,18 +323,29 @@ h1, h3 {
   transition: filter .2s ease, -webkit-filter .2s ease;
 }
 
+.discord-text span::-moz-selection {
+  color: #5865F2;
+}
+
+.discord-text span::selection {
+  color: #5865F2;
+}
+
 .link-text {
   -webkit-transition: -webkit-filter .2s ease;
   transition: -webkit-filter .2s ease;
   transition: filter .2s ease;
   transition: filter .2s ease, -webkit-filter .2s ease;
+  -webkit-transition: opacity .2 ease;
+  transition: opacity .2 ease;
   position: absolute;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   color: rgba(255, 255, 255, 0.8);
-  font-weight: 200;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

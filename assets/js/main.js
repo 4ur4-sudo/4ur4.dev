@@ -10,7 +10,6 @@ document.documentElement.onload = function () {
 
 //Click listener for autoplay
 $(document).click(function (e) {
-  console.log('click')
   clicked = true;
   document.getElementById("interact").style.opacity = "0%";
 });
@@ -51,37 +50,98 @@ function muteToggle() {
 $(document).ready(function () {
   //link hover effects
   $(".link").hover(function () {
-      $(this).find(".link-button").css("filter","drop-shadow(0 0 .2rem white)");
+      if ($(this).attr("class") == "discord link"){
+        $(this).find(".link-bg").css("filter","drop-shadow(0 0 .2rem white)");
+        $(this).find("span").css("filter","drop-shadow(0 0 .2rem white)");
+        $(this).find("svg").css("filter","drop-shadow(0 0 .1rem #5865F2)");
+      } else{
+        $(this).find(".link-button").css("filter","drop-shadow(0 0 .2rem white)");
+      }
       $(this).find(".left").css("left","6.1rem");
       $(this).find(".right").css("left","13.4rem");
 
     }, function () {
       $(this).find(".link-button").css("filter","");
+      $(this).find(".link-bg").css("filter","");
+      $(this).find("span").css("filter","");
+      $(this).find("svg").css("filter","");
       $(this).find(".left").css("left","-1.5rem");
       $(this).find(".right").css("left","21.1rem");
     }
   );
     //discord hover effects
+    var animating = false;
     $(".discord").hover(function(){
       let text= $(this).find("span");
       let svg= $(this).find("svg");
-      text.css("opacity","0");
-      svg.css("opacity","0");
-      setTimeout(() => {
-          text.text("4ur4#3538"); 
+      if (animating == false){
+        animating = true
+        console.log("hover animating true")
+        text.css("opacity","0");
+        svg.css("opacity","0");
+        setTimeout(() => {
+          text.text("4ur4#3538");
           text.css("opacity","100");
           svg.css("opacity","100");
-      }, 200);
+          svg.css("color","#5865F2")
+          setTimeout(() => {
+            animating = false
+            console.log("animating false")
+          }, 200);
+        }, 200);
+      } else {
+        console.log('hover animated already')
+        setTimeout(() => {
+          animating = true
+          console.log('animating true')
+          text.css("opacity","0");
+          svg.css("opacity","0");
+          setTimeout(() => {
+            setTimeout(() => {
+              animating = false;
+              console.log('animating false')
+            }, 200);
+            text.text("4ur4#3538");
+            text.css("opacity","100");
+            svg.css("opacity","100");
+            svg.css("color","#5865F2")
+        }, 200);
+        }, (parseFloat(text.css("opacity")).toFixed(2))*500);
+      }
     }, function(){
       let text= $(this).find("span");
       let svg= $(this).find("svg");
-      text.css("opacity","0");
-      svg.css("opacity","0");
-      setTimeout(() => {
+      if (animating == false ){
+        animating = true;
+        console.log('unhover not already animating, animating true')
+        text.css("opacity","0");
+        svg.css("opacity","0");
+        setTimeout(() => {
           text.text("Discord"); 
           text.css("opacity","100");
           svg.css("opacity","100");
-      }, 200);
+          svg.css("color","#d4d4d4")
+          setTimeout(() => {
+            animating = false
+            console.log('unhover done')
+          }, 200);
+        }, 200);
+      } else {
+        console.log('already unhovering, waiting ' + ((parseFloat(text.css("opacity")).toFixed(2))*500))
+        setTimeout(() => {
+          animating = true;
+          text.css("opacity","0");
+          svg.css("opacity","0");
+          setTimeout(() => {
+            setTimeout(() => {
+              animating = false
+            }, 200);
+          text.text("Discord"); 
+          text.css("opacity","100");
+          svg.css("opacity","100");
+          }, 200);
+        }, (parseFloat(text.css("opacity")).toFixed(2))*500);
+      }
     }
     );
   
@@ -159,7 +219,6 @@ TxtRotate.prototype.tick = function () {
             if (promise !== undefined) {
               promise.catch((_) => {
                 // if autoplay no worky
-                console.log("ok");
                 if (clicked == false){
                   document.getElementById("interact").style.opacity = "60%";
                 }
