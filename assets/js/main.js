@@ -47,6 +47,11 @@ function muteToggle() {
   soundMute = !soundMute;
 }
 
+function discordCopy() {
+  var copy = document.getElementById("discord-sel");
+  navigator.clipboard.writeText(copy.textContent);
+}
+
 $(document).ready(function () {
   //link hover effects
   $(".link").hover(function () {
@@ -76,7 +81,6 @@ $(document).ready(function () {
       let svg= $(this).find("svg");
       if (animating == false){
         animating = true
-        console.log("hover animating true")
         text.css("opacity","0");
         svg.css("opacity","0");
         setTimeout(() => {
@@ -86,20 +90,16 @@ $(document).ready(function () {
           svg.css("color","#5865F2")
           setTimeout(() => {
             animating = false
-            console.log("animating false")
           }, 200);
         }, 200);
       } else {
-        console.log('hover animated already')
         setTimeout(() => {
           animating = true
-          console.log('animating true')
           text.css("opacity","0");
           svg.css("opacity","0");
           setTimeout(() => {
             setTimeout(() => {
               animating = false;
-              console.log('animating false')
             }, 200);
             text.text("4ur4#3538");
             text.css("opacity","100");
@@ -113,7 +113,6 @@ $(document).ready(function () {
       let svg= $(this).find("svg");
       if (animating == false ){
         animating = true;
-        console.log('unhover not already animating, animating true')
         text.css("opacity","0");
         svg.css("opacity","0");
         setTimeout(() => {
@@ -123,11 +122,9 @@ $(document).ready(function () {
           svg.css("color","#d4d4d4")
           setTimeout(() => {
             animating = false
-            console.log('unhover done')
           }, 200);
         }, 200);
       } else {
-        console.log('already unhovering, waiting ' + ((parseFloat(text.css("opacity")).toFixed(2))*500))
         setTimeout(() => {
           animating = true;
           text.css("opacity","0");
