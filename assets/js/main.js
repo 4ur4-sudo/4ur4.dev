@@ -9,10 +9,13 @@ document.documentElement.onload = function () {
 };
 
 //Click listener for autoplay
-$(document).click(function (e) {
+$(document).click(hide);
+$(document).keypress(hide);
+
+function hide(){
   clicked = true;
   document.getElementById("interact").style.opacity = "0%";
-});
+}
 
 //Listener for scroll to stop typing audio
 $(window).scroll(function(){
@@ -57,7 +60,6 @@ $(document).ready(function () {
   $(".link").hover(function () {
       if ($(this).attr("class") == "discord link"){
         $(this).find(".link-bg").css("filter","drop-shadow(0 0 .2rem white)");
-        $(this).find("span").css("filter","drop-shadow(0 0 .2rem white)");
         $(this).find("svg").css("filter","drop-shadow(0 0 .1rem #5865F2)");
       } else{
         $(this).find(".link-button").css("filter","drop-shadow(0 0 .2rem white)");
@@ -74,74 +76,45 @@ $(document).ready(function () {
       $(this).find(".right").css("left","21.1rem");
     }
   );
-    //discord hover effects
-    var animating = false;
-    $(".discord").hover(function(){
-      let text= $(this).find("span");
-      let svg= $(this).find("svg");
-      if (animating == false){
-        animating = true
-        text.css("opacity","0");
-        svg.css("opacity","0");
+
+  //discord hover effects
+  $(".discord").hover(function() {
+    let text = $(this).find("span");
+    let svg = $(this).find("svg");
+    text.css("opacity", "0");
+    svg.css("opacity", "0");
+    setTimeout(() => {
+        text.text("4ur4#3538");
+        text.css("opacity", "1");
+        svg.css("opacity", "1");
+        svg.css("color", "#5865F2");
+    }, 200);
+  },
+    function() {
+      let text = $(this).find("span");
+      let svg = $(this).find("svg");
+      if (text.css("opacity") == 1){
+        text.css("opacity", "0");
+        svg.css("opacity", "0");
         setTimeout(() => {
-          text.text("4ur4#3538");
-          text.css("opacity","100");
-          svg.css("opacity","100");
-          svg.css("color","#5865F2")
-          setTimeout(() => {
-            animating = false
-          }, 200);
+            text.text("Discord");
+            text.css("opacity", "1");
+            svg.css("opacity", "1");
+            svg.css("color", "#d4d4d4")
         }, 200);
       } else {
         setTimeout(() => {
-          animating = true
-          text.css("opacity","0");
-          svg.css("opacity","0");
+          text.css("opacity", "0");
+          svg.css("opacity", "0");
           setTimeout(() => {
-            setTimeout(() => {
-              animating = false;
-            }, 200);
-            text.text("4ur4#3538");
-            text.css("opacity","100");
-            svg.css("opacity","100");
-            svg.css("color","#5865F2")
-        }, 200);
-        }, (parseFloat(text.css("opacity")).toFixed(2))*500);
-      }
-    }, function(){
-      let text= $(this).find("span");
-      let svg= $(this).find("svg");
-      if (animating == false ){
-        animating = true;
-        text.css("opacity","0");
-        svg.css("opacity","0");
-        setTimeout(() => {
-          text.text("Discord"); 
-          text.css("opacity","100");
-          svg.css("opacity","100");
-          svg.css("color","#d4d4d4")
-          setTimeout(() => {
-            animating = false
+              text.text("Discord");
+              text.css("opacity", "1");
+              svg.css("opacity", "1");
+              svg.css("color", "#d4d4d4")
           }, 200);
-        }, 200);
-      } else {
-        setTimeout(() => {
-          animating = true;
-          text.css("opacity","0");
-          svg.css("opacity","0");
-          setTimeout(() => {
-            setTimeout(() => {
-              animating = false
-            }, 200);
-          text.text("Discord"); 
-          text.css("opacity","100");
-          svg.css("opacity","100");
-          }, 200);
-        }, (parseFloat(text.css("opacity")).toFixed(2))*500);
-      }
+      }, text.css("opacity")*200);
     }
-    );
-  
+  });
 
   //hide loading screen
   document.getElementById("loader").style.display = "none";
@@ -192,6 +165,19 @@ var TxtRotate = function (el, toRotate, period) {
   this.isDeleting = false;
 };
 
+var tabVisible
+document.addEventListener("visibilitychange", check);
+
+function check() {
+  if (document.visibilityState == "visible") {   
+    console.log('hi');
+    tabVisible = true;
+  } else{
+    console.log('bye');
+    tabVisible = false;
+  }
+}
+
 TxtRotate.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
@@ -203,30 +189,14 @@ TxtRotate.prototype.tick = function () {
     //check if website is currently visible
     if (document.visibilityState == "visible") {
       //check if the muted button is toggled
-      if (soundMute == false && typingVisible == true) {
-        var audio = new Audio("assets/audio/type.mp3");
-
-        //honestly idk how any of this works but it basicallys checks if audio autoplay is working
-        //https://stackoverflow.com/questions/49930680/
-        Audio.prototype.play = (function (play) {
-          return function () {
-            var audio = this,
-              args = arguments,
-              promise = play.apply(audio, args);
-            if (promise !== undefined) {
-              promise.catch((_) => {
-                // if autoplay no worky
-                if (clicked == false){
-                  document.getElementById("interact").style.opacity = "60%";
-                }
-              });
-            }
-          };
-        })(Audio.prototype.play);
-        document.getElementById("interact").style.opacity = "0%";
-        audio.playbackRate = getRandomFloat(0.77, 1.5, 2);
-        audio.play();
+      if (soundMute == false && typingVisible == true && tabVisible == true) {
+          var audio = new Audio("assets/audio/type.mp3");
+          audio.playbackRate = getRandomFloat(0.77, 1.5, 2);
+          audio.muted = false;
+          audio.autoplay = true;
+          audio.play();
       } else {
+        check();
         console.log("skipping audio");
       }
     }

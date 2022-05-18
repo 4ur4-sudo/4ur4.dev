@@ -4,7 +4,7 @@ body {
 
 p, a, .discord {
   font-family: 'Palanquin', sans-serif;
-  color: #d4d4d4;
+  color: #f8f8f2;
   font-size: 25px;
 }
 
@@ -42,12 +42,12 @@ h1, h3 {
 
 #interact {
   opacity: 50%;
-  background: #100c0c;
-  width: 20rem;
+  background: #303030a2;
+  width: 15rem;
   height: 3rem;
   border-radius: 0.5rem;
   position: absolute;
-  top: 2%;
+  top: 5%;
   z-index: 5;
   -webkit-transition: all .2s;
   transition: all .2s;
@@ -220,7 +220,7 @@ h1, h3 {
 }
 
 .txt-rotate {
-  color: darkslateblue;
+  color: #bd93f9;
 }
 
 .title {
@@ -238,13 +238,13 @@ h1, h3 {
           animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
-  color: #d4d4d4;
+  color: #f8f8f2;
 }
 
 .bioBG {
   background: #00000096;
   max-width: 55rem;
-  border: 2px solid #d4d4d4;
+  border: 2px solid #f8f8f2;
   border-radius: 50px;
   -webkit-animation: fadeInAnimation ease-out 1s;
           animation: fadeInAnimation ease-out 1s;
@@ -260,7 +260,7 @@ h1, h3 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  color: darkslateblue;
+  color: #bd93f9;
 }
 
 .link {
