@@ -1,54 +1,6 @@
-function getRandomFloat(min, max, decimals) {
-  const str = (Math.random() * (max - min) + min).toFixed(decimals);
-
-  return parseFloat(str);
-}
-
 document.documentElement.onload = function () {
   document.getElementById("loader").style.display = "block";
 };
-
-//Click listener for autoplay
-$(document).click(hide);
-$(document).keypress(hide);
-
-function hide(){
-  clicked = true;
-  document.getElementById("interact").style.opacity = "0%";
-}
-
-//Listener for scroll to stop typing audio
-$(window).scroll(function(){
-  var element = document.querySelector('.title');
-	var position = element.getBoundingClientRect();
-
-	// checking whether fully visible
-	if(position.top >= 0 && position.bottom <= window.innerHeight) {
-		typingVisible = true;
-	} else {
-    typingVisible = false;
-  }
-});
-
-var soundMute = false;
-var typingVisible = true;
-var clicked = false;
-
-function muteToggle() {
-  let button = document.getElementById("mute");
-  if (soundMute == false) {
-    button.firstChild.firstChild.setAttribute(
-      "fill",
-      "#ff5555"
-    );
-  } else {
-    button.firstChild.firstChild.setAttribute(
-      "fill",
-      "#50fa7b"
-    );
-  }
-  soundMute = !soundMute;
-}
 
 function discordCopy() {
   var copy = document.getElementById("discord-sel");
@@ -165,19 +117,6 @@ var TxtRotate = function (el, toRotate, period) {
   this.isDeleting = false;
 };
 
-var tabVisible
-document.addEventListener("visibilitychange", check);
-
-function check() {
-  if (document.visibilityState == "visible") {   
-    console.log('hi');
-    tabVisible = true;
-  } else{
-    console.log('bye');
-    tabVisible = false;
-  }
-}
-
 TxtRotate.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
@@ -186,20 +125,6 @@ TxtRotate.prototype.tick = function () {
     this.txt = fullTxt.substring(0, this.txt.length - 1);
   } else {
     this.txt = fullTxt.substring(0, this.txt.length + 1);
-    //check if website is currently visible
-    if (document.visibilityState == "visible") {
-      //check if the muted button is toggled
-      if (soundMute == false && typingVisible == true && tabVisible == true) {
-          var audio = new Audio("assets/audio/type.mp3");
-          audio.playbackRate = getRandomFloat(0.77, 1.5, 2);
-          audio.muted = false;
-          audio.autoplay = true;
-          audio.play();
-      } else {
-        check();
-        console.log("skipping audio");
-      }
-    }
   }
 
   this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";

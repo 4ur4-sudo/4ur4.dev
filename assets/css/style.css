@@ -40,28 +40,6 @@ h1, h3 {
   left: 0px;
 }
 
-#interact {
-  opacity: 50%;
-  background: #303030a2;
-  width: 15rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 5%;
-  z-index: 5;
-  -webkit-transition: all .2s;
-  transition: all .2s;
-}
-
-#interact p {
-  font-family: 'Palanquin', sans-serif;
-  font-weight: 100;
-  color: #7d73c2;
-  margin-top: -1.2rem;
-  font-size: 45px;
-  text-align: center;
-}
-
 @-webkit-keyframes glowin {
   0% {
     text-shadow: 0 0 0px yellow, 0 0 0px yellow, 0 0 0px yellowgreen;
@@ -116,74 +94,6 @@ h1, h3 {
 
 .nopadding {
   padding: 0px;
-}
-
-#mute {
-  background: transparent;
-  outline: none;
-  border: none;
-  z-index: 69;
-  position: absolute;
-  bottom: 1rem;
-  right: -1rem;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-#mute:hover {
-  -webkit-animation: up 0.35s ease;
-          animation: up 0.35s ease;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-#mute:not(:hover) {
-  -webkit-animation: down 0.35s ease;
-          animation: down 0.35s ease;
-}
-
-@-webkit-keyframes up {
-  0% {
-    -webkit-transform: translate(-50%, 0px);
-            transform: translate(-50%, 0px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, -2.5px);
-            transform: translate(-50%, -2.5px);
-  }
-}
-
-@keyframes up {
-  0% {
-    -webkit-transform: translate(-50%, 0px);
-            transform: translate(-50%, 0px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, -2.5px);
-            transform: translate(-50%, -2.5px);
-  }
-}
-
-@-webkit-keyframes down {
-  0% {
-    -webkit-transform: translate(-50%, -2.5px);
-            transform: translate(-50%, -2.5px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0px);
-            transform: translate(-50%, 0px);
-  }
-}
-
-@keyframes down {
-  0% {
-    -webkit-transform: translate(-50%, -2.5px);
-            transform: translate(-50%, -2.5px);
-  }
-  100% {
-    -webkit-transform: translate(-50%, 0px);
-            transform: translate(-50%, 0px);
-  }
 }
 
 .rgb {

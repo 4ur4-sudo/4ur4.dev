@@ -41,26 +41,6 @@ h1,h3 {
   left:0px;
 }
 
-#interact {
-  p {
-    font-family: 'Palanquin', sans-serif;
-    font-weight: 100;
-    color:rgb(125, 115, 194);
-    margin-top: -1.2rem;
-    font-size: 45px;
-    text-align: center;
-  }
-  opacity: 50%;
-  background: #303030a2;
-  width: 15rem;
-  height: 3rem;
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 5%;
-  z-index: 5;
-  transition: all .2s;
-}
-
 @keyframes glowin {
   0% {text-shadow:
     0 0 0px yellow,
@@ -103,36 +83,6 @@ h1,h3 {
 
 .nopadding {
   padding: 0px
-}
-
-#mute {
-  background: transparent;
-  outline: none;
-  border: none;
-  z-index: 69;
-  position: absolute;
-  bottom: 1rem;
-  right: -1rem;
-  transform: translateX(-50%);
-}
-
-#mute:hover {
-  animation: up 0.35s ease;
-  animation-fill-mode: forwards;
-}
-
-#mute:not(:hover) {
-  animation: down 0.35s ease;
-}
-
-@keyframes up {
-  0%{transform: translate(-50%,0px);}
-  100%{transform: translate(-50%,-2.5px);}
-}
-
-@keyframes down {
-  0%{transform: translate(-50%,-2.5px);}
-  100%{transform: translate(-50%,0px);}
 }
 
 .rgb {
