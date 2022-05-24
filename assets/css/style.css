@@ -241,6 +241,17 @@ h1, h3 {
   color: #5865F2;
 }
 
+#copied {
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  -webkit-filter: drop-shadow(0 0 0.2rem white);
+          filter: drop-shadow(0 0 0.2rem white);
+  position: absolute;
+  margin-top: 3.5rem;
+  opacity: 0;
+}
+
 .link-text {
   -webkit-transition: -webkit-filter .2s ease;
   transition: -webkit-filter .2s ease;

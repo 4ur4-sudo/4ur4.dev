@@ -30,11 +30,15 @@ $(document).ready(function () {
   );
 
   //discord hover effects
-  $(".discord").hover(function() {
+  $(".discord").children().not("#copied").hover(function() {
+    console.log($(this))
     let text = $(this).find("span");
     let svg = $(this).find("svg");
+    let copy = $(this).parent().find("#copied");
     text.css("opacity", "0");
     svg.css("opacity", "0");
+    copy.animate({opacity:1});
+    copy.css("display","block");
     setTimeout(() => {
         text.text("4ur4#3538");
         text.css("opacity", "1");
@@ -43,29 +47,18 @@ $(document).ready(function () {
     }, 200);
   },
     function() {
-      let text = $(this).find("span");
-      let svg = $(this).find("svg");
-      if (text.css("opacity") == 1){
-        text.css("opacity", "0");
-        svg.css("opacity", "0");
-        setTimeout(() => {
-            text.text("Discord");
-            text.css("opacity", "1");
-            svg.css("opacity", "1");
-            svg.css("color", "#d4d4d4")
-        }, 200);
-      } else {
-        setTimeout(() => {
-          text.css("opacity", "0");
-          svg.css("opacity", "0");
-          setTimeout(() => {
-              text.text("Discord");
-              text.css("opacity", "1");
-              svg.css("opacity", "1");
-              svg.css("color", "#d4d4d4")
-          }, 200);
-      }, text.css("opacity")*200);
-    }
+    let text = $(this).find("span");
+    let svg = $(this).find("svg");
+    let copy = $(this).parent().find("#copied");
+      text.css("opacity", "0");
+      svg.css("opacity", "0");
+      copy.animate({opacity:0});
+      setTimeout(() => {
+          text.text("Discord");
+          text.css("opacity", "1");
+          svg.css("opacity", "1");
+          svg.css("color", "#d4d4d4")
+      }, 200);
   });
 
   //hide loading screen
