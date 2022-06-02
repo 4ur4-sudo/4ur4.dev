@@ -3,8 +3,12 @@ document.documentElement.onload = function () {
 };
 
 function discordCopy() {
-  var copy = document.getElementById("discord-sel");
-  navigator.clipboard.writeText(copy.textContent);
+  let text = document.getElementById("discord-sel");
+  let copy = $("#copied");
+  copy.text("copied!");
+  copy.css("color","#50fa7b");
+  copy.css("filter","drop-shadow(0 0 .2rem #50fa7b)");
+  navigator.clipboard.writeText(text.textContent);
 }
 
 $(document).ready(function () {
@@ -34,10 +38,12 @@ $(document).ready(function () {
     console.log($(this))
     let text = $(this).find("span");
     let svg = $(this).find("svg");
-    let copy = $(this).parent().find("#copied");
+    var copy = $(this).parent().find("#copied");
     text.css("opacity", "0");
     svg.css("opacity", "0");
-    copy.animate({opacity:1});
+    if (!$(copy).is(':animated')) {
+      copy.animate({opacity:1});    
+    }
     copy.css("display","block");
     setTimeout(() => {
         text.text("4ur4#3538");
@@ -49,15 +55,19 @@ $(document).ready(function () {
     function() {
     let text = $(this).find("span");
     let svg = $(this).find("svg");
-    let copy = $(this).parent().find("#copied");
+    var copy = $(this).parent().find("#copied");
       text.css("opacity", "0");
       svg.css("opacity", "0");
-      copy.animate({opacity:0});
+      copy.animate({opacity:0},250);
       setTimeout(() => {
+          window.getSelection().removeAllRanges();
           text.text("Discord");
           text.css("opacity", "1");
           svg.css("opacity", "1");
           svg.css("color", "#d4d4d4")
+          copy.text("copy")
+          copy.css("filter","drop-shadow(0 0 .2rem #f8f8f2)")
+          copy.css("color","#f8f8f2")
       }, 200);
   });
 
